@@ -46,10 +46,8 @@ public class Comandos {
     }
 
     public void listarContato() {
-        String temp = "";
-        for (int i = 0; i < agenda.size(); i++) {
-            temp += agenda.get(i) + "\n";
-            System.out.printf(temp);
+        for(String s : agenda){
+            System.out.println(s);
         }
     }
 

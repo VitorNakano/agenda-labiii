@@ -40,12 +40,13 @@ public class Agenda {
                 System.out.println("Opção Inválida!");
                 break;
             }
-            //cmd.save(agenda);
         }
     }
 
-    private static void listar() {
+    private static void listar() throws IOException {
+        ArrayList<String> agenda = new ArrayList<String>();
         Comandos cmd = new Comandos();
+        cmd.load(agenda);
         cmd.listarContato();
     }
 
