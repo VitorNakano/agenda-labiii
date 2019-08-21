@@ -9,30 +9,48 @@ public class Comandos {
     BufferedWriter out = null;
     Scanner scanner = null;
 
-    public Comandos(){
+    public Comandos() {
         agenda = new ArrayList<String>();
     }
 
     public void addContato(String name, String phone) throws IOException {
-        agenda.add(name + ", " + phone);
+        agenda.add(name.toUpperCase() + "," + phone);
         Collections.sort(agenda);
         save(agenda);
     }
 
-    public void delContatoFone(String phone) {
-
+    public void delContatoFone(String phone) throws IOException {
+        String temp = "";
+        String[] splited = new String[agenda.size()];
+        for (int i = 0; i < agenda.size(); i++) {
+            temp = agenda.get(i);
+            splited = temp.split(",");
+            if (phone.equals(splited[1])) {
+                agenda.remove(i);
+                save(agenda);
+            }
+        }
     }
 
-    public static void delContatoNome(String name) {
-
+    public void delContatoNome(String name) throws IOException {
+        String temp = "";
+        String[] splited = new String[agenda.size()];
+        for (int i = 0; i < agenda.size(); i++) {
+            temp = agenda.get(i);
+            splited = temp.split(",");
+            if (name.toUpperCase().equals(splited[0].toUpperCase())) {
+                agenda.remove(i);
+                save(agenda);
+            }
+        }
     }
 
-    public String listarContato() {
+    public void listarContato() {
         String temp = "";
         for (int i = 0; i < agenda.size(); i++) {
             temp += agenda.get(i) + "\n";
+            System.out.printf(temp);
         }
-        return temp;
     }
 
     public void save(ArrayList<String> lista) throws IOException {
@@ -51,16 +69,16 @@ public class Comandos {
         }
     }
 
-        public void load(ArrayList<String> lista) throws IOException{
-            try{
-                in = new BufferedReader(new FileReader("Agenda.txt"));
-                String line = in.readLine();
-                while(line != null){
-                    agenda.add(line);
-                    line = in.readLine();
-                }
-            } finally {
-                in.close();
+    public void load(ArrayList<String> lista) throws IOException {
+        try {
+            in = new BufferedReader(new FileReader("Agenda.txt"));
+            String line = in.readLine();
+            while (line != null) {
+                agenda.add(line);
+                line = in.readLine();
             }
+        } finally {
+            in.close();
         }
+    }
 }
