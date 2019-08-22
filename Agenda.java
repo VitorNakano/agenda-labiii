@@ -16,8 +16,10 @@ public class Agenda {
             System.out.println("1 - Adicionar Contato");
             System.out.println("2 - Deletar Telefone");
             System.out.println("3 - Deletar Contato");
-            System.out.println("4 - Listar Contatos");
-            System.out.println("5 - Encerrar");
+            System.out.println("4 - Pesquisar Contatos");
+            System.out.println("5 - Pesquisar Telefone");
+            System.out.println("6 - Listar Contatos");
+            System.out.println("7 - Encerrar");
             System.out.print("Selecione a Opcao: ");
             num = scanner.nextInt();
             switch (num) {
@@ -34,6 +36,12 @@ public class Agenda {
                 listar();
                 break;
             case 5:
+                pesqCont();
+                break;
+            case 6:
+                pesqTel();
+                break;
+            case 7:
                 System.out.println("Encerrado");
                 break;
             default:
@@ -80,5 +88,19 @@ public class Agenda {
         System.out.print("Telefone: ");
         String tel = scanner.nextLine();
         cmd.addContato(nome, tel);
+    }
+
+    public static void pesqCont() throws IOException {
+        ArrayList<String> agenda = new ArrayList<String>();
+        Comandos cmd = new Comandos();
+        cmd.load(agenda);
+        Scanner scanner = new Scanner(System.in);
+    }
+
+    public static void pesqTel() throws IOException {
+        ArrayList<String> agenda = new ArrayList<String>();
+        Comandos cmd = new Comandos();
+        cmd.load(agenda);
+        Scanner scanner = new Scanner(System.in);
     }
 }

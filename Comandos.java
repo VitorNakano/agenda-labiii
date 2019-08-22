@@ -51,6 +51,24 @@ public class Comandos {
         }
     }
 
+    public void pesquisarContato(String nome) throws IOException {
+        load(agenda);
+        for(String name : agenda){
+            if(agenda.contains(nome) == true){
+                System.out.println(name);
+            }
+        } 
+    }
+
+    public void pesquisarTelefone(String fone) throws IOException {
+        load(agenda);
+        for(String phone : agenda){
+            if(agenda.contains(fone) == true){
+                System.out.println(phone);
+            }
+        } 
+    }
+
     public void save(ArrayList<String> lista) throws IOException {
         try {
             out = new BufferedWriter(new FileWriter("Agenda.txt"));
