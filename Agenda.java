@@ -12,7 +12,7 @@ public class Agenda {
         String tel = " ";
         cmd.load(agenda);
         int num = 0;
-        while (num != 5) {
+        while (num != 7) {
             System.out.println("1 - Adicionar Contato");
             System.out.println("2 - Deletar Telefone");
             System.out.println("3 - Deletar Contato");
@@ -33,13 +33,13 @@ public class Agenda {
                 delNome();
                 break;
             case 4:
-                listar();
-                break;
-            case 5:
                 pesqCont();
                 break;
-            case 6:
+            case 5:
                 pesqTel();
+                break;
+            case 6:
+                listar();
                 break;
             case 7:
                 System.out.println("Encerrado");
@@ -95,6 +95,9 @@ public class Agenda {
         Comandos cmd = new Comandos();
         cmd.load(agenda);
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Nome: ");
+        String pesqNome = scanner.nextLine();
+        cmd.pesquisarContato(pesqNome);
     }
 
     public static void pesqTel() throws IOException {
@@ -102,5 +105,8 @@ public class Agenda {
         Comandos cmd = new Comandos();
         cmd.load(agenda);
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Telefone: ");
+        String pesqTel = scanner.nextLine();
+        cmd.pesquisarTelefone(pesqTel);
     }
 }

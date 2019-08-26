@@ -54,18 +54,20 @@ public class Comandos {
     public void pesquisarContato(String nome) throws IOException {
         load(agenda);
         for(String name : agenda){
-            if(agenda.contains(nome) == true){
+            if(name.contains(nome.toUpperCase()) == true){
                 System.out.println(name);
             }
+            break;
         } 
     }
 
     public void pesquisarTelefone(String fone) throws IOException {
         load(agenda);
         for(String phone : agenda){
-            if(agenda.contains(fone) == true){
+            if(phone.contains(fone.toUpperCase()) == true){
                 System.out.println(phone);
             }
+            break;
         } 
     }
 
