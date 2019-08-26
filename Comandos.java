@@ -57,7 +57,6 @@ public class Comandos {
             if(name.contains(nome.toUpperCase()) == true){
                 System.out.println(name);
             }
-            break;
         } 
     }
 
@@ -67,7 +66,6 @@ public class Comandos {
             if(phone.contains(fone.toUpperCase()) == true){
                 System.out.println(phone);
             }
-            break;
         } 
     }
 
