@@ -52,19 +52,21 @@ public class Comandos {
     }
 
     public void pesquisarContato(String nome) throws IOException {
-        load(agenda);
+        String[] nom = new String[2];
         for(String name : agenda){
-            if(name.contains(nome.toUpperCase()) == true){
-                System.out.println(name);
+            nom = name.split(",");
+            if(name.contains(nome.toUpperCase())){
+                System.out.println(nom[0]);
             }
         } 
     }
 
     public void pesquisarTelefone(String fone) throws IOException {
-        load(agenda);
+        String[] fon = new String[2];
         for(String phone : agenda){
-            if(phone.contains(fone.toUpperCase()) == true){
-                System.out.println(phone);
+            fon = phone.split(",");
+            if(phone.contains(fone.toUpperCase())){
+                System.out.println(fon[1]);
             }
         } 
     }
